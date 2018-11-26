@@ -27,6 +27,10 @@ public class FuelModel : INotifyPropertyChanged {
 		Value = Mathf.Max(Value - deltaTime, 0.0f);
 	}
 
+	public void IncreaseValue(float addition) {
+		Value = Mathf.Min(Value + addition, MaxValue);
+	}
+
 	public event PropertyChangedEventHandler PropertyChanged;
 
 	void OnPropertyChanged([CallerMemberName] string propertyName = null) {
