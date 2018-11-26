@@ -6,6 +6,7 @@ public class SampleInstaller : MonoInstaller {
 	
 	public override void InstallBindings() {
 		Container.BindInstance(new FuelRepository(StartFuel, MaxFuel)).AsSingle();
+		Container.Bind<ItemRepository>().ToSelf().AsSingle();
 		Container.Bind<FuelController>().ToSelf().AsSingle();
 	}
 }
