@@ -12,7 +12,7 @@ public class ItemCollector : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		var item = other.GetComponent<ItemTrigger>();
 		if ( item ) {
-			_repo.Items.Add(new ItemModel(item.Name));
+			_repo.Items.Add(new ItemModel(item.Name, item.Value));
 			item.Kill();
 		}
 	}

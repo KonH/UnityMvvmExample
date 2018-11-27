@@ -1,12 +1,15 @@
 ﻿public class FuelController {
-	readonly FuelRepository _repo;
+	readonly FuelModel _model;
 	
 	public FuelController(FuelRepository repo) {
-		_repo = repo;
+		_model = repo.Model;
+	}
+	
+	public void Update(float deltaTime) {
+		_model.Value -= deltaTime;
 	}
 
-	public void Update(float deltaTime) {
-		var model = _repo.Model;
-		model.UpdateValue(deltaTime);
+	public void Increase(float addition) {
+		_model.Value += addition;
 	}
 }

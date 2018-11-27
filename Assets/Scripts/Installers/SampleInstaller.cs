@@ -8,5 +8,6 @@ public class SampleInstaller : MonoInstaller {
 		Container.BindInstance(new FuelRepository(StartFuel, MaxFuel)).AsSingle();
 		Container.Bind<ItemRepository>().ToSelf().AsSingle();
 		Container.Bind<FuelController>().ToSelf().AsSingle();
+		Container.Bind<ItemController>().ToSelf().AsSingle();
 	}
 }

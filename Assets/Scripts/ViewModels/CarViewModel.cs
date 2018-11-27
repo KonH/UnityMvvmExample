@@ -17,8 +17,6 @@ public class CarViewModel : MonoBehaviour {
 	}
 
 	void Update() {
-		if ( _model.Value <= 0.0f ) {
-			_control.enabled = false;
-		}
+		_control.enabled = _model.Value > 0.0f;
 	}
 }
