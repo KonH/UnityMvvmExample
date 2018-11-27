@@ -3,31 +3,33 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityWeld.Binding;
 
-[Binding]
-public class TimeViewModel : MonoBehaviour, INotifyPropertyChanged {
-	
+namespace ViewModels {
 	[Binding]
-	public int Seconds {
-		get { return _seconds; }
-		set {
-			if ( value != _seconds ) {
-				_seconds = value;
-				OnPropertyChanged();
+	public class TimeViewModel : MonoBehaviour, INotifyPropertyChanged {
+
+		[Binding]
+		public int Seconds {
+			get { return _seconds; }
+			set {
+				if ( value != _seconds ) {
+					_seconds = value;
+					OnPropertyChanged();
+				}
 			}
 		}
-	}
 
-	int _seconds = -1;
+		int _seconds = -1;
 
-	void Update() {
-		if ( Time.timeSinceLevelLoad > Seconds + 1 ) {
-			Seconds = (int)Time.timeSinceLevelLoad;
+		void Update() {
+			if ( Time.timeSinceLevelLoad > Seconds + 1 ) {
+				Seconds = (int)Time.timeSinceLevelLoad;
+			}
 		}
-	}
 
-	public event PropertyChangedEventHandler PropertyChanged;
+		public event PropertyChangedEventHandler PropertyChanged;
 
-	void OnPropertyChanged([CallerMemberName] string propertyName = null) {
-		PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		void OnPropertyChanged([CallerMemberName] string propertyName = null) {
+			PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+		}
 	}
 }

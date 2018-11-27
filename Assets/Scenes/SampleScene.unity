@@ -709,9 +709,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1603ee9dc901f54fa7a795b75c4a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAdapterTypeName: NormalizedValueToColorAdapter
+  viewAdapterTypeName: Adapters.NormalizedValueToColorAdapter
   viewAdapterOptions: {fileID: 11400000, guid: 5827df4565300457f8f1b07ea80d50bb, type: 2}
-  viewModelPropertyName: FuelViewModel.Value
+  viewModelPropertyName: ViewModels.FuelViewModel.Value
   viewPropertyName: UnityEngine.UI.Image.color
 --- !u!1 &319762744
 GameObject:
@@ -1533,7 +1533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewAdapterTypeName: 
   viewAdapterOptions: {fileID: 0}
-  viewModelPropertyName: FuelViewModel.Value
+  viewModelPropertyName: ViewModels.FuelViewModel.Value
   viewPropertyName: UnityEngine.UI.Slider.value
 --- !u!1001 &921353078
 Prefab:
@@ -6378,6 +6378,21 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114428053204904458, guid: 5abff8f44f544432c9f9c1fbd288e860,
+        type: 2}
+      propertyPath: viewModelTypeName
+      value: ViewModels.ItemViewModel
+      objectReference: {fileID: 0}
+    - target: {fileID: 114751704367954646, guid: 5abff8f44f544432c9f9c1fbd288e860,
+        type: 2}
+      propertyPath: viewModelPropertyName
+      value: ViewModels.ItemViewModel.Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136407599405958, guid: 5abff8f44f544432c9f9c1fbd288e860,
+        type: 2}
+      propertyPath: viewModelMethodName
+      value: ViewModels.ItemViewModel.Use
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5abff8f44f544432c9f9c1fbd288e860, type: 2}
   m_IsPrefabAsset: 0
@@ -6562,7 +6577,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c4019182bc38a43aa9cf241368bc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewModelPropertyName: ItemsViewModel.Items
+  viewModelPropertyName: ViewModels.ItemsViewModel.Items
   templatesRoot: {fileID: 1365958148}
 --- !u!1 &1399541827
 GameObject:
@@ -8652,7 +8667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1603ee9dc901f54fa7a795b75c4a8e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAdapterTypeName: IntToStringAdapter
+  viewAdapterTypeName: Adapters.IntToStringAdapter
   viewAdapterOptions: {fileID: 0}
-  viewModelPropertyName: TimeViewModel.Seconds
+  viewModelPropertyName: ViewModels.TimeViewModel.Seconds
   viewPropertyName: UnityEngine.UI.Text.text

@@ -1,11 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using Models;
 
-public class FuelRepository {
-	public FuelModel Model { get; }
+namespace Repositories {
+	public class FuelRepository {
+		public FuelModel Model { get; }
 
-	public FuelRepository(float initialValue, float maxValue) {
-		Model = new FuelModel(initialValue, maxValue);
+		public FuelRepository(float initialValue, float maxValue) {
+			Model = new FuelModel(initialValue, maxValue);
+		}
 	}
 }
