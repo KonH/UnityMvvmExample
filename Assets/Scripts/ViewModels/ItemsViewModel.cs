@@ -1,16 +1,10 @@
-using System;
 using UnityEngine;
 using UnityWeld.Binding;
 using Zenject;
 
 [Binding]
-public class ItemsViewModel : MonoBehaviour, INotifyCollectionChanged {
-	[Binding]
-	public ObservableList<ItemModel> Items {
-		get { return _items; }
-	}
-	
-	public event EventHandler<NotifyCollectionChangedEventArgs> CollectionChanged;
+public class ItemsViewModel : MonoBehaviour {
+	[Binding] public ObservableList<ItemViewModel> Items { get; set; } = new ObservableList<ItemViewModel>();
 
 	ObservableList<ItemModel> _items;
 
@@ -20,7 +14,28 @@ public class ItemsViewModel : MonoBehaviour, INotifyCollectionChanged {
 		_items.CollectionChanged += OnCollectionChanged;
 	}
 
+	void OnDisable() {
+		if ( _items != null ) {
+			_items.CollectionChanged -= OnCollectionChanged;
+		}
+	}
+
 	void OnCollectionChanged(object sender, NotifyCollectionChangedEventArgs e) {
-		CollectionChanged?.Invoke(this, e);
+		switch ( e.Action ) {
+			case NotifyCollectionChangedAction.Add: {
+				Items.Insert(e.NewStartingIndex, new ItemViewModel(e.NewItems[0] as ItemModel));
+			}
+			break;
+
+			case NotifyCollectionChangedAction.Remove: {
+				Items.RemoveAt(e.OldStartingIndex);
+			}
+			break;
+
+			case NotifyCollectionChangedAction.Reset: {
+				Items.Clear();
+			}
+			break;
+		}
 	}
 }
